@@ -1,0 +1,8 @@
+sudo: required
+services: -docker
+
+before_install:
+  - docker build -t hemtamang9/MyReact -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true hemtamang/MyReact npm run test
